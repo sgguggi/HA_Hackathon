@@ -1,6 +1,5 @@
 """ This script creates the wordle loop within tkinter"""
 
-import pandas as pd
 import random
 import tkinter as tk
 from tkinter import Label, Entry, Tk, ttk, mainloop, CENTER, StringVar
@@ -77,9 +76,7 @@ def compare_word():
     
     if count == 6:
         Label(win, text=f"Out of attempts, the word was {sol}", font='Helvetica 18', foreground='red').grid(row=10, column=0, sticky='W')
-        #Label(win, text=sol, font="Helvetica 18", foreground='red')
         button1.destroy()
-        #win.after(1500, destr())
 
 
 var = StringVar(win)
@@ -99,7 +96,6 @@ label1.grid(row=0, column=0)
 entry.grid(row=10, column=9)
 
 count=0
-invalid_count=0
 button1 = ttk.Button(win, text= "Click to Submit", command= compare_word)
 button1.grid(column=10,row=10)
 
@@ -109,6 +105,7 @@ while True:
 
 
 # stop loop when max attempts reached - done removed button
+
 # move out of attemps warning and other messages
-# make more efficienct
+# make more efficient
 # make invalid word, guess again message disappear if button is clicked
