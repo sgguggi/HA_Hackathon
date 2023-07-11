@@ -9,6 +9,9 @@ from tkinter import Label, Entry, Tk, ttk, mainloop, CENTER, StringVar
 word_list = ['mango','spoon','ramen','plate']
 
 large_dictionary = ['mango','spoon','ramen','plate', 'table', 'plato']
+large_dictionary = [x.upper() for x in large_dictionary]
+large_dictionary
+
 
 solution = random.choice(word_list) 
 solution
@@ -32,7 +35,7 @@ def compare_word():
     Author: Silja Guggisberg, 11/07/2023"""
 
     var = entry.get()
-    sol='plate'
+    sol='PLATE'
     global count
 
     if len(var) != 5:
@@ -62,12 +65,26 @@ def compare_word():
         Label(win, text='Well done!', font='Helvetica 22', foreground='green').grid(row=5, column=2, sticky='E')
     
     if count == 6:
-        Label(win, text="Out of attempts", font='Helvetica 18').grid(row=10, column=0, sticky='W')
+        Label(win, text="Out of attempts", font='Helvetica 18', foreground='red').grid(row=10, column=0, sticky='W')
+
+
+def to_uppercase(*args):
+    var.set(var.get().upper())
+
+var = StringVar(win)
+entry = Entry(win, width= 42, textvariable=var)
+
+try:
+    # python 3.6
+    var.trace_add('write', to_uppercase)
+except AttributeError:
+    # python < 3.6
+    var.trace('w', to_uppercase)
 
 
 label1 = Label(win, text='Guess a five-letter word', font=('Helvetica 16'))
 label1.grid(row=0, column=0)
-entry = Entry(win, width= 42)
+
 entry.grid(row=10, column=9)
 
 ttk.Button(win, text= "Click to Submit", command= compare_word).grid(column=10,row=10)
