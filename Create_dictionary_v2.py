@@ -7,7 +7,7 @@ using the words dictionary found here https://github.com/gokhanyavas/Oxford-3000
 import json
 import pandas as pd
 
-f = pd.read_fwf(r"Z:\C&C Hackathon\Oxford_3000_Dictionary.txt")
+f = pd.read_fwf("Oxford_3000_Dictionary.txt")
 
 f
 
@@ -38,3 +38,4 @@ five_letter_df["word"] = five_letter_df["word"].str.upper()
 
 five_letter_df.head()
 
+five_letter_df.to_csv("wordle_dictionary.csv")
