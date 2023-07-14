@@ -9,7 +9,7 @@ import json
 import numpy as np
 import pandas as pd
 
-f = open(r"Z:\C&C Hackathon\words_dictionary.json")
+f = open("words_dictionary.json")
 
 original_dict = json.load(f)
 len(original_dict)
@@ -33,3 +33,4 @@ five_letter_df['word'] = five_letter_df['word'].str.upper()
 
 five_letter_df.head()
 
+five_letter_df.to_csv("checking_dictionary.csv")

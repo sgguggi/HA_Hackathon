@@ -106,6 +106,6 @@ while True:
 
 # stop loop when max attempts reached - done removed button
 
-# move out of attemps warning and other messages
+# move out of attempts warning and other messages
 # make more efficient
 # make invalid word, guess again message disappear if button is clicked
