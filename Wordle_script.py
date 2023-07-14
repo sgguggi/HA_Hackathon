@@ -33,16 +33,19 @@ def compare_word():
     global count
 
     if len(var) != 5:
-        lab = Label(win, text="Please enter a five letter word", font=("Helvetica 14"))
-        lab.grid(row=12, column=0)
+        lab = Label(win, text="Please enter a five letter word", font="Helvetica 14")
+        lab.grid(row=10, column=0)
         
     elif var not in checking_dictionary.word.values:
-        invalid_lab = Label(win, text="Invalid word, Guess again", font='Helvetica 14')
-        invalid_lab.grid(row=12, column=0)
+        invalid_lab = Label(win, text="   Invalid word, Guess again   ", font='Helvetica 14')
+        invalid_lab.grid(row=10, column=0)
         
     else:
         count += 1
         col=3
+        empty_lab = Label(win, text="                                  ", font="Helvetica 20")
+        empty_lab.grid(row=10, column=0)
+
         for letter, x in zip(var,solution):
             if letter == x:
                 col+=1
@@ -57,9 +60,9 @@ def compare_word():
                 Label(win, text=letter, font='Helvetica 18').grid(row=count+1, column=col)
                
     if var == solution:
-        Label(win, text='Well done!', font='Helvetica 22', foreground='green').grid(row=6, column=0)
+        Label(win, text='        Well done!        ', font='Helvetica 22', foreground='green').grid(row=10, column=0)
     
-    if count == 6:
+    if (var != solution) and (count == 6):
         Label(win, text=f"Out of attempts, the word was {solution}", font='Helvetica 14', foreground='red').grid(row=10, column=0, sticky='W')
         button1.destroy()
 
@@ -81,10 +84,8 @@ entry.grid(row=10, column=1)
 
 var.trace_add('write', to_uppercase)
 
-
-label1 = Label(win, text='Guess a five-letter word', font=('Helvetica 16'))
+label1 = Label(win, text='Guess a five-letter word', font='Helvetica 16')
 label1.grid(row=0, column=0)
-
 
 count=0
 button1 = ttk.Button(win, text= "Click to Submit", command= compare_word)
