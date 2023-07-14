@@ -5,24 +5,26 @@
 Colorama package works as expected.
 
 Author: Silja Guggisberg
-Date 02/06/23
-
-Test Git 06/06/23"""
+Date: 02/06/23
+"""
 
 from colorama import Fore
-from colorama import init as colorama_init
 from colorama import Style
 import pandas as pd
 import random
-#from termcolor import colored
+from termcolor import colored
 
-#print(colored('Hello', 'red'), colored('world', 'green'))
+print(colored("Hello", "red"), colored("world", "green"))
+# termcolor does not work as expected
 
+# Test colorama package
 print(f"This is {Fore.GREEN}color{Style.RESET_ALL}!")
 
-word_list = ['mango','spoon','ramen','plate']
+# Create simple loop comparing letters to word to test colorama
+# package
+word_list = ["mango", "spoon", "ramen", "plate"]
 
-alphabet = [chr(i) for i in range(ord('a'),ord('z')+1)]
+alphabet = [chr(i) for i in range(ord("a"),ord("z")+1)]
 
 solution = random.choice(word_list) 
 solution
@@ -44,4 +46,4 @@ for guess_letter,solution_letter in zip(guess_word,solution):
         print(f"{Fore.BLACK}{guess_letter}")
         
 
-
+# Colorama package works to print coloured output in the console
