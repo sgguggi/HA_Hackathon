@@ -6,8 +6,7 @@ Author: Hacking Housing Analysis
 Date: 07/2023"""
 
 import random
-import tkinter as tk
-from tkinter import Label, Entry, Tk, ttk, mainloop, CENTER, StringVar
+from tkinter import Label, Entry, Tk, ttk, CENTER, StringVar
 
 
 word_list = ["mango", "spoon", "ramen", "plate"]
